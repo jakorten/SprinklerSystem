@@ -21,5 +21,5 @@ This means:
 - has a timeout of 15.0 seconds
 - default state is open (change to closed if you want to reverse how your valve reacts)
 
-Johan Korten
+Johan Korten<br>
 June 2019

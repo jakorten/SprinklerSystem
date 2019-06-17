@@ -1,6 +1,7 @@
 # SprinklerSystem: CinqueValvoleHAT
 Repository for valve controllers etc.
 
+## About
 Here I publish updates to Python and Arduino scripts to create my / your own irrigation system.
 
 June 2019:
@@ -37,12 +38,24 @@ We used the valves from:
 https://nl.aliexpress.com/store/4032047?spm=a2g0o.detail.1000002.2.6d6b58daLNaQAn
 (e.g. https://nl.aliexpress.com/item/32896353276.html?spm=a2g0s.9042311.0.0.32b34c4dLBPZam)
 
-The source provided:
-- lets your Raspberry Pi control the valves via a PCA9685 IC
+## Source
+The source lets your Raspberry Pi control the valves via a PCA9685 IC
+
+## Credits
 
 Thanks @Adafruit for not only providing us with the basis idea and HAT layout (https://www.adafruit.com/product/2348).
 Their hat works well but we found it got too hot inside the narrow enclosure we used.
 Also thanks to @Adafruit for their suggestion to use DRV8871 drivers (they sell separate boards).
 
-Johan Korten
+Note: we have designed the HAT and software to interoperate with homebridge. We use a second Raspberry Pi that
+runs homebridge and will allow to set the valves remotely.
+
+# ToDo: Work in progress
+==============================================================================================
+- We have created a HMI system for operation without homebridge
+- We still need to integrate this functionality with the current source.
+- Other parts of the system will be uploaded as we go.
+- We hope to make the system available for purchase using Tindie.
+
+Johan Korten<br>
 June 2019
