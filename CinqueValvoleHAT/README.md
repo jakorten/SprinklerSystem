@@ -51,7 +51,6 @@ Note: we have designed the HAT and software to interoperate with homebridge. We 
 runs homebridge and will allow to set the valves remotely.
 
 # ToDo: Work in progress
-==============================================================================================
 - We have created a HMI system for operation without homebridge
 - We still need to integrate this functionality with the current source.
 - Other parts of the system will be uploaded as we go.
