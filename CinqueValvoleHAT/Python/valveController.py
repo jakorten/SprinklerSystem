@@ -191,10 +191,10 @@ class tapHatCinqController():
     def __init__(self):
         if (self.findPCA9685):
             self._error = False
-            print("PCA9685 was found")
+            print(" PCA9685 was found")
         else:
             self._error = True
-            print("Error: Could not find PCA9685")
+            print(" Error: Could not find PCA9685")
             return
 
         # DRV8871_Valve number, timeout delay, default state

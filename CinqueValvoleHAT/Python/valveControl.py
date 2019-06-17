@@ -90,6 +90,10 @@ class DRV8871_Valve:
     pwmPins = [0, 2, 8, 4, 6]     # strange but is due to HAT v1.0 configuration...
     # Function with the timer
 
+    _delay = 15.0
+    _motor = 0
+
+
     def motorTimeout(self):
         debugPrint("Timeout issued (motorStop)")
         debugPrint("Delay: " + str(self._delay))
@@ -154,11 +158,13 @@ class DRV8871_Valve:
         debugPrint("Motorstop issued (" + str(self._motor) + ")")
 
     def setStateTimer(self, toState):
+        #print("Setting timer...")
         try:
-            self._mT.cancel() # just in case...
+            self._mT.cancel()
         except:
-            # do nothing
-            enableDebugPrints("Error: Timer exception")
+            print("Could not cancel motorTimer!")
+
+        print(str(self._default_state))
         if (toState == self._default_state):
             self.motorBackward()
         else:
@@ -186,14 +192,16 @@ class DRV8871_Valve:
     def inRange(self, value, min, max):
         return (value >= min) and (value <= max)
 
+    _mT = motorTimer(_delay, motorStop, str(_motor))
+
 class tapHatCinqController():
     def __init__(self):
         if (self.findPCA9685):
             self._error = False
-            print("PCA9685 was found")
+            print(" PCA9685 was found")
         else:
             self._error = True
-            print("Error: Could not find PCA9685")
+            print(" Error: Could not find PCA9685")
             return
 
         # DRV8871_Valve number, timeout delay, default state

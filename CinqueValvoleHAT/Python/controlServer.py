@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 #from TapControl.ControlTap import updateTap
 from valveControl import *
 import socket
+import pigpio
 
 HOST_NAME = 'pumptapunit' # note: change to appropriate hostname
 PORT_NUMBER = 8000
@@ -86,7 +87,10 @@ valveController = tapHatCinqController()
 if __name__ == '__main__':
     server_class = HTTPServer
     HOST_NAME = socket.gethostname() # just to be sure...
-
+    pi = pigpio.pi()
+    if not pi.connected:
+        print("Warning: pigpio is not running, start pigpio deamon and restart server...")
+        exit() # or reporting the issue
     httpd = server_class((HOST_NAME, PORT_NUMBER), ValveServerHandler)
     print(time.asctime(), 'Server Starts - %s:%s' % (HOST_NAME, PORT_NUMBER))
     try:
