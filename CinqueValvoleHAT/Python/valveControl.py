@@ -164,7 +164,7 @@ class DRV8871_Valve:
         except:
             print("Could not cancel motorTimer!")
 
-        print(str(self._default_state))
+        debugPrint(str(self._default_state))
         if (toState == self._default_state):
             self.motorBackward()
         else:
